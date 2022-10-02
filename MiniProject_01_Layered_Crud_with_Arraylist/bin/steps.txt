@@ -1,0 +1,74 @@
+1. Create Project
+
+2. Create required packages
+    com.cogent.bean
+	com.cogent.client
+	com.cogent.controller
+	com.cogent.repo
+	com.cogent.service
+	
+3. Create BookBean inside com.cogent.bean package and add below fields
+    private int bookId;
+	private String bookTitle;
+	private String bookAuthor;
+	private double price;
+	
+4.  Identify the functionality to be implemented then add them in repo layer
+    public interface BookRepo {
+		public void addBook(BookBean bookBean);
+		public void deleteBookById(int bookId);
+		public BookBean findBookById(int bookId);
+		public BookBean findBookByAuthor(String author);
+		public List<BookBean> findBookWithPriceRange(double minPrice, double maxPrice);
+	
+	}
+	
+5   Create BookService with Same methods written inside BookRepo
+	public interface BookService {
+		public void addBook(BookBean bookBean);
+		public void deleteBookById(int bookId);
+		public BookBean findBookById(int bookId);
+		public BookBean findBookByAuthor(String author);
+		public List<BookBean> findBookWithPriceRange(double minPrice, double maxPrice);
+	}
+	
+6 Write Implementation class for BookService and BookRepo
+	BookServiceImpl & BookRepo
+
+
+7 Create ArrayList in BookRepoImpl
+
+
+8. Call all repo layer methods from service layer method
+
+9. Write the client class
+
+
+
+****
+DIY
+**********************************************************
+Crud Operation using Layered Architechture with Arraylist
+**********************************************************
+EmployeeBean
+-----------------------
+employeeId-long
+employeeFname-String
+employeeLname-String
+employeeEmail-String
+employeeAge- int
+employeeIsMarried-boolean
+employeeCity- String
+employeeCountry- String
+
+
+
+Functionality to be implemented
+
+1. Add new Employee
+2. View All Employee
+3. Find employee by Id
+4. Delete Employee by Id
+5. Find the youngest Employee
+6. Display All employee from country India
+8. Display All employee from country India and city Bangalore
