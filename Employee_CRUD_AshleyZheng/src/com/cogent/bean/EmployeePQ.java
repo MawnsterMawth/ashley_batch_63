@@ -3,7 +3,7 @@ package com.cogent.bean;
 import java.util.PriorityQueue;
 import java.util.Scanner;
 import com.cogent.bean.*;
-public class EmployeePQ {
+public class EmployeePQ implements Comparable<EmployeeBean> {
 	public static void main(String args[]) {
 		PriorityQueue<EmployeeBean> pq = new PriorityQueue<>();
 		Scanner scanner = new Scanner(System.in);
