@@ -1,9 +1,11 @@
 package com.app;
 
 import java.io.DataOutputStream;
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.ObjectOutputStream;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -13,15 +15,20 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class StudentObjectWriter {
-	List<Student> students = new ArrayList();
+	private List<Student> students = new ArrayList();
 	public void writeList() {
+		
+		try {
+			File f = new File("test.txt");
+			FileOutputStream fos = new FileOutputStream(f);
+			ObjectOutputStream output = new ObjectOutputStream(fos);
+		
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			String url = "jdbc:mysql://localhost:3306/classicmodels?characterEncoding=utf8";
 			Connection con = DriverManager.getConnection(url, "root", "GOOPHoenix66#");
 			Statement st = con.createStatement();
 			ResultSet rs = st.executeQuery("select * from students");
-			FileOutputStream fos = new FileOutputStream(f);
 		    
 			while(rs.next()) {
 				students.add(new Student(rs.getInt(0),rs.getString(1),rs.getString(2)));
@@ -34,6 +41,7 @@ public class StudentObjectWriter {
 			e.printStackTrace();
 		} catch(SQLException e) {
 			e.printStackTrace();
+		}
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -41,5 +49,9 @@ public class StudentObjectWriter {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
+	}
+	public List<Student> getStudentList(){
+		return students;
 	}
 }
