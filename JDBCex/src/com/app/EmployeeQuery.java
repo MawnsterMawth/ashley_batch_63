@@ -34,7 +34,7 @@ public class EmployeeQuery {
 		}
 		return empInfo;
 	}
-	public void findEMployeeByName() {
+	public void findEmployeeByName() {
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			String url = "jdbc:mysql://localhost:3306/classicmodels?characterEncoding=utf8";
@@ -47,7 +47,7 @@ public class EmployeeQuery {
 			e.printStackTrace();
 		}
 	}
-	public void findEMployeeByEmail() {
+	public void findEmployeeByEmail() {
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			String url = "jdbc:mysql://localhost:3306/classicmodels?characterEncoding=utf8";
